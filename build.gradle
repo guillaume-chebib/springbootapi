@@ -4,6 +4,13 @@ plugins {
     id 'java'
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'fr.poly.mtp.ig5.iwa.springbootapi.SpringbootapiApplication'
+    }
+}
+
+
 group = 'fr.poly.mtp.ig5.iwa'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
