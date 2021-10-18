@@ -23,6 +23,10 @@ public class UserService {
     }
 
     public User save(User newUser) {
-        return userRepository.save(newUser);
+        return userRepository.saveAndFlush(newUser);
+    }
+
+    public void delete(long id){
+        userRepository.deleteById(id);
     }
 }

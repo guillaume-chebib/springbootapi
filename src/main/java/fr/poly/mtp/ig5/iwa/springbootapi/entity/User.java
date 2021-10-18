@@ -1,70 +1,81 @@
 package fr.poly.mtp.ig5.iwa.springbootapi.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
-@Table(name = "TBL_USERS")
-@Entity
+@Access(AccessType.FIELD)
+@Entity(name = "users")
 public class User {
 
-    private @Id @GeneratedValue Long id;
-    private String name;
-    private int age;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long user_id;
+    private String first_name;
+    private String last_name;
+    private String email;
+    private String phone_number;
+    private String password;
+
+    @ManyToMany
+    @JoinTable(name = "user_locations",joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="location_id"))
+    private List<Location> locations;
+
 
     public User() {
     }
 
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public Long getId() {
-        return id;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public String getName() {
-        return name;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public int getAge() {
-        return age;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public String getEmail() {
+        return email;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return age == user.age && Objects.equals(id, user.id) && Objects.equals(name, user.name);
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, age);
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 }
