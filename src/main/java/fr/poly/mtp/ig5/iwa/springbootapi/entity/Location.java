@@ -1,12 +1,15 @@
 package fr.poly.mtp.ig5.iwa.springbootapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+@Access(AccessType.FIELD)
+@Entity(name = "locations")
 public class Location {
 
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long location_id;

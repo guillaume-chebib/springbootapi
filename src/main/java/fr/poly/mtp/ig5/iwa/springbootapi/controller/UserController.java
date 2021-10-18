@@ -21,17 +21,15 @@ public class UserController {
 
 
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<User> getAllUsers(){
         return userService.getAll();
     }
 
 
-    @PostMapping("/")
+    @PostMapping("")
     @ResponseStatus (HttpStatus.CREATED)
     User newUser(@RequestBody User newUser) {
-        System.out.println(newUser);
-
         return userService.save(newUser);
     }
 

@@ -19,9 +19,11 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.postgresql:postgresql'
     implementation 'org.springframework.boot:spring-boot-devtools:2.5.5'
+    implementation 'org.springframework.boot:spring-boot-starter-jetty'
+}
 
-
-
+configurations {
+    implementation.exclude module: "spring-boot-starter-tomcat"
 }
 
 test {

@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+    username: ${DB_USER}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    generate-ddl: true
+  config:
+    activate:
+      on-profile: dev
+server:
+  port: 9090
+app:
+  version: "1.0.0"
+
+---
+
+spring:
+  datasource:
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+    username: ${DB_USER}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    generate-ddl: true
+  config:
+    activate:
+      on-profile: prod
+server:
+  port: 9091
+logging:
+  level:
+    fr: WARN
