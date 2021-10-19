@@ -29,9 +29,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jetty'
 }
 
-configurations {
-    implementation.exclude module: "spring-boot-starter-tomcat"
-}
 
 test {
     useJUnitPlatform()
