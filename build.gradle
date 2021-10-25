@@ -4,7 +4,9 @@ plugins {
     id 'java'
 }
 
-
+bootJar {
+    archiveFileName = 'app.jar'
+}
 
 
 group = 'fr.poly.mtp.ig5.iwa'
