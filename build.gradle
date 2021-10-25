@@ -1,14 +1,10 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.7.RELEASE'
+    id 'org.springframework.boot' version '2.5.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'fr.poly.mtp.ig5.iwa.springbootapi.SpringbootapiApplication'
-    }
-}
+
 
 
 group = 'fr.poly.mtp.ig5.iwa'
@@ -26,7 +22,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.postgresql:postgresql'
     implementation 'org.springframework.boot:spring-boot-devtools:2.5.5'
-    implementation 'org.springframework.boot:spring-boot-starter-jetty'
 }
 
 
